@@ -9,7 +9,7 @@ const port = process.env.port || 2500;
 const viewsPath = path.join(__dirname, './templates/views');
 const partialsPath = path.join(__dirname, './templates/partials');
 
-app.use(express.static(publicPath))
+app.use(express.static(__dirname));
 
 //weather api
 const url = 'https://api.openweathermap.org/data/2.5/weather?lat=31.5326&lon=35.0998&appid=b79529712f1c0691e6afae708aff98b8';
@@ -24,8 +24,8 @@ app.set('views', viewsPath);
 
 hbs.registerPartials(partialsPath);
 
-app.get('/home', (req, res) => {
-    res.render('home', {
+app.get('/', (req, res) => {
+    res.render('index', {
         text: 'Welcome To Home Page'
     });
 });
