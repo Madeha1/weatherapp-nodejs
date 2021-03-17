@@ -4,8 +4,12 @@ const request = require('postman-request')
 const hbs = require('hbs');
 const app = express();
 
+const port = process.env.port || 2500;
+
 const viewsPath = path.join(__dirname, './templates/views');
 const partialsPath = path.join(__dirname, './templates/partials');
+
+app.use(express.static(publicPath))
 
 //weather api
 const url = 'https://api.openweathermap.org/data/2.5/weather?lat=31.5326&lon=35.0998&appid=b79529712f1c0691e6afae708aff98b8';
@@ -37,6 +41,6 @@ app.get('/weather', (req, res) => {
     });
 });
 
-app.listen(2500, () => {
-    console.log('listinig to port 2500')
+app.listen(port, () => {
+    console.log(`listinig to port ${port}`)
 });
