@@ -4,7 +4,7 @@ const request = require('postman-request')
 const hbs = require('hbs');
 const app = express();
 
-const port = process.env.port || 2500;
+const PORT = process.env.PORT || 3000;
 
 const viewsPath = path.join(__dirname, './templates/views');
 const partialsPath = path.join(__dirname, './templates/partials');
@@ -41,6 +41,6 @@ app.get('/weather', (req, res) => {
     });
 });
 
-app.listen(port, () => {
-    console.log(`listinig to port ${port}`)
+app.listen(PORT, () => {
+    console.log(`listinig to port ${PORT}`)
 });
